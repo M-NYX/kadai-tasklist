@@ -17,19 +17,25 @@
                         </div>
                         <div>
                             {{-- タスクコンテンツ内容 --}}
-                            <p class="mb-0">{!! nl2br(e($task->content)) !!}</p>
+                            <p class="mb-0">コンテンツ：{!! nl2br(e($task->content)) !!}</p>
                             {{-- タスクステータス内容 --}}
-                            <p class="mb-0">{!! nl2br(e($task->status)) !!}</p>
+                            <p class="mb-0">ステータス：{!! nl2br(e($task->status)) !!}</p>
                         </div>
                         <div>
                             @if (Auth::id() == $task->user_id)
                                 {{-- タスク削除ボタンのフォーム --}}
-                                <form method="POST" action="{{ route('tasks.destroy', $task->id) }}">
+                                <form method="POST" action="{{ route('tasks.destroy', $task->id) }}" class="my-2">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-error btn-sm normal-case" 
-                                        onclick="return confirm('Delete id = {{ $task->id }} ?')">Delete</button>
+                                    <button type="submit" class="btn btn-error btn-outline" 
+                                    onclick="return confirm('id = {{ $task->id }} のタスクを削除します。よろしいですか？')">削除</button>
                                 </form>
+                            @endif
+                        </div>
+                        <div>
+                            @if (Auth::id() == $task->user_id)
+                               {{-- タスク編集ページへのリンク --}}
+                                <a class="btn btn-outline" href="{{ route('tasks.edit', $task->id) }}">このタスクを編集</a>
                             @endif
                         </div>
                     </div>

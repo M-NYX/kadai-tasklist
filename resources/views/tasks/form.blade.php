@@ -5,6 +5,7 @@
             @csrf
         
             <div class="form-control mt-4">
+                <h2>タスク新規作成</h2>
                 <p>タスクContent</p>
                 <textarea rows="2" name="content" class="input input-bordered w-full"></textarea>
             </div>

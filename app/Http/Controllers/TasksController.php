@@ -37,14 +37,14 @@ class TasksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    //public function create()
-    //{
-    //   $task = new Task;
-	//	
-	//	return view('tasks.create', [
-	//	'task' => $task,
-	//	]);
-    //}
+    public function create()
+    {
+       $task = new Task;
+		
+		return view('tasks.create', [
+		'task' => $task,
+		]);
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -98,14 +98,14 @@ class TasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    //public function edit($id)
-    //{
-    //    $task = Task::findOrFail($id);
+    public function edit($id)
+    {
+        $task = Task::findOrFail($id);
 		
-	//	return view('tasks.edit', [
-	//	'task' => $task,
-	//	]);
-    //}
+		return view('tasks.edit', [
+		'task' => $task,
+		]);
+    }
 
     /**
      * Update the specified resource in storage.
@@ -114,21 +114,21 @@ class TasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    //public function update(Request $request, $id)
-    //{
-    //    $request->validate([
-    //        'content' => 'required',
-    //        'status' => 'required|max:10',
-    //    ]);
-    //    
-    //    $task = Task::findOrFail($id);
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'content' => 'required',
+            'status' => 'required|max:10',
+        ]);
+        
+        $task = Task::findOrFail($id);
 
-	//	$task->content = $request->content;
-	//	$task->status = $request->status;
-	//	$task->save();
+		$task->content = $request->content;
+		$task->status = $request->status;
+		$task->save();
 		
-	//	return redirect('/');
-    //}
+		return redirect('/');
+    }
 
     /**
      * Remove the specified resource from storage.

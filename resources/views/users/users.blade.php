@@ -14,7 +14,7 @@
 					</div>
 					<div>
 						{{-- ユーザ詳細ページへのリンク --}}
-						<p><a class="link link-hover text-info" href="{{ route('users.show', $user->id) }}">View profile</a></p>
+						<p><a class="link link-hover text-info" href="{{ route('users.show', $user->id) }}">View task</a></p>
 					</div>
 				</div>
 			</li>
