@@ -3,13 +3,7 @@
 @section('content')
     @if (Auth::check())
         <div class="sm:grid sm:grid-cols-3 sm:gap-10">
-            <aside class="mt-4">
-                {{-- ユーザ情報 --}}
-                @include('users.card')
-            </aside>
             <div class="sm:col-span-2">
-                {{-- タスクフォーム --}}
-                @include('tasks.form')
                 {{-- タスク一覧 --}}
                 @include('tasks.tasks')
             </div>
